@@ -10,6 +10,7 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 require 'rake'
+require 'rake/extensiontask'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
@@ -22,6 +23,9 @@ Jeweler::Tasks.new do |gem|
   gem.email = "sasinestro@gmail.com"
   gem.authors = ["Hayes Williams"]
   # dependencies defined in Gemfile
+  
+  # use rake-compiler   
+  Rake::ExtensionTask.new('freearc', gem)
 end
 Jeweler::RubygemsDotOrgTasks.new
 
